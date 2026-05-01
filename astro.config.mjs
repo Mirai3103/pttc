@@ -11,7 +11,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pttc.com.vn',
+  site: 'https://mirai3103.github.io',
+  base: '/pttc',
   integrations: [react(), sitemap(), mdx()],
 
   vite: {
