@@ -1,0 +1,27 @@
+---
+import { aboutHero } from "../../data/about";
+---
+
+<header
+  class="relative w-full h-[614px] min-h-[500px] flex items-center justify-center bg-surface-variant overflow-hidden"
+>
+  <div class="absolute inset-0 w-full h-full overflow-hidden">
+    <img
+      alt="Industrial plant at twilight"
+      class="hero-img w-full h-full object-cover opacity-60"
+      src={aboutHero.image}
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/40 mix-blend-multiply"
+    >
+    </div>
+  </div>
+  <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+    <h1 class="hero-title font-headline text-headline-xl text-on-primary mb-4">
+      {aboutHero.title}
+    </h1>
+    <p class="hero-subtitle font-body text-body-lg text-tertiary-fixed-dim max-w-2xl mx-auto">
+      {aboutHero.subtitle}
+    </p>
+  </div>
+</header>

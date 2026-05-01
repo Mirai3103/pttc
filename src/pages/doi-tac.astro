@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import PartnerHero from "../components/sections/PartnerHero.astro";
+import PartnerIntro from "../components/sections/PartnerIntro.astro";
+import PartnerGrid from "../components/sections/PartnerGrid.astro";
+import PartnerCTA from "../components/sections/PartnerCTA.astro";
+---
+
+<Layout
+  title="Đối Tác Chiến Lược Toàn Cầu - PTTC JSC"
+  description="PTTC JSC hợp tác với các tập đoàn đa quốc gia hàng đầu như Shell, Total, Chevron, BP, Exxon và nhiều nhà cung cấp uy tín quốc tế trong ngành hóa dầu và công nghiệp."
+  keywords="đối tác hóa dầu, Shell, Total, Chevron, BP, Exxon, nhà cung cấp hóa chất quốc tế, PTTC JSC đối tác, hợp tác dầu khí Việt Nam"
+  ogImage="https://pttc.com.vn/banner1.jpg"
+>
+  <Navbar activePath="/doi-tac" />
+  <main>
+    <PartnerHero />
+    <PartnerIntro />
+    <PartnerGrid />
+    <PartnerCTA />
+  </main>
+  <Footer />
+</Layout>

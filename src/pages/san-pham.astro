@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import ProductPageHero from "../components/sections/ProductPageHero.astro";
+import ProductGrid from "../components/sections/ProductGrid.astro";
+import TechSupport from "../components/sections/TechSupport.astro";
+---
+
+<Layout
+  title="Sản Phẩm Hóa Dầu & Hóa Chất Công Nghiệp - PTTC JSC"
+  description="PTTC JSC cung cấp xúc tác lọc dầu, hóa chất xử lý nước, chống ăn mòn, làm sạch hệ thống và thiết bị công nghiệp chất lượng cao. Giải pháp tối ưu cho ngành dầu khí và công nghiệp."
+  keywords="xúc tác lọc dầu, hóa chất xử lý nước, hóa chất chống ăn mòn, hóa chất làm sạch hệ thống, vật tư dầu khí, thiết bị công nghiệp, hóa chất nhập khẩu Việt Nam"
+  ogImage="https://pttc.com.vn/banner1.jpg"
+>
+  <Navbar activePath="/san-pham" />
+  <main class="min-h-screen flex flex-col pt-4">
+    <ProductPageHero />
+    <ProductGrid />
+    <TechSupport />
+  </main>
+  <Footer />
+</Layout>

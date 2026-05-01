@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import ContactHero from "../components/sections/ContactHero.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
+import ContactMap from "../components/sections/ContactMap.astro";
+import ContactCTA from "../components/sections/ContactCTA.astro";
+---
+
+<Layout
+  title="Liên Hệ PTTC JSC - Tư Vấn Hóa Chất & Giải Pháp Công Nghiệp"
+  description="Liên hệ PTTC JSC để được tư vấn và báo giá nhanh: 0974.609.103 (Mr Duy, Zalo) | admin@pttc.com.vn | Lô E5.10 Ngọc Bảo Viên, Nghĩa Lộ, Tp. Quảng Ngãi. Giờ làm việc T2–T6: 7:30–17:00."
+  keywords="liên hệ PTTC JSC, tư vấn hóa chất công nghiệp, báo giá hóa dầu, số điện thoại PTTC, địa chỉ công ty hóa dầu Quảng Ngãi, Zalo tư vấn hóa chất"
+  ogImage="https://pttc.com.vn/banner1.jpg"
+>
+  <Navbar activePath="/lien-he" />
+  <main class="w-full">
+    <ContactHero />
+    <ContactSection />
+    <ContactMap />
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>

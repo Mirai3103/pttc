@@ -1,0 +1,26 @@
+---
+import { partners } from "../../data/site";
+---
+
+<section class="py-stack-md bg-background px-8 border-t border-slate-100">
+  <div class="max-w-[1280px] mx-auto text-center">
+    <h3
+      class="text-slate-400 font-label-md text-label-md uppercase tracking-widest mb-stack-sm"
+      data-reveal
+    >
+      Đối tác chiến lược toàn cầu
+    </h3>
+    <div
+      class="flex flex-wrap justify-center items-center gap-12 opacity-60 hover:opacity-100 transition-opacity duration-500"
+      data-stagger
+    >
+      {partners.map((partner) => (
+        <div
+          class="h-10 w-32 bg-slate-300 rounded flex items-center justify-center font-bold text-slate-500 italic"
+        >
+          {partner.name}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

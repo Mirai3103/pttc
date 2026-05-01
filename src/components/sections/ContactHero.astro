@@ -1,0 +1,26 @@
+---
+import { contactHero } from "../../data/contact";
+---
+
+<section
+  class="w-full bg-surface-container-lowest border-b border-surface-variant relative overflow-hidden"
+>
+  <div class="absolute inset-0 z-0">
+    <img
+      alt="Background texture"
+      class="w-full h-full object-cover opacity-10 grayscale"
+      src={contactHero.bgImage}
+    />
+  </div>
+  <div
+    class="max-w-[1280px] mx-auto px-gutter py-stack-lg relative z-10 text-center"
+    data-reveal
+  >
+    <h1 class="font-headline text-headline-xl text-primary mb-stack-sm">
+      {contactHero.title}
+    </h1>
+    <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+      {contactHero.subtitle}
+    </p>
+  </div>
+</section>

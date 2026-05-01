@@ -1,0 +1,20 @@
+---
+interface Props {
+  label: string;
+  tone?: "primary" | "tint";
+  class?: string;
+}
+
+const { label, tone = "primary", class: className = "" } = Astro.props;
+
+const tones: Record<string, string> = {
+  primary: "bg-primary text-white",
+  tint: "bg-surface-tint text-white",
+};
+---
+
+<span
+  class={`inline-block text-[10px] px-2 py-1 uppercase font-bold tracking-tighter ${tones[tone]} ${className}`}
+>
+  {label}
+</span>

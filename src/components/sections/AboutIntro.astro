@@ -1,0 +1,25 @@
+---
+import { aboutIntro } from "../../data/about";
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+  <div class="flex flex-col gap-stack-sm" data-reveal>
+    <h2 class="font-headline text-headline-lg text-primary">{aboutIntro.title}</h2>
+    <div class="w-16 h-1 bg-primary-container mb-4"></div>
+    {aboutIntro.paragraphs.map((p) => (
+      <p class="font-body text-body-md text-on-surface-variant">{p}</p>
+    ))}
+  </div>
+  <div
+    class="relative h-[400px] rounded bg-surface-container-low border border-outline-variant overflow-hidden group"
+    data-reveal
+    style="transition-delay: 0.15s"
+  >
+    <img
+      alt={aboutIntro.imageAlt}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      src={aboutIntro.image}
+      loading="lazy"
+    />
+  </div>
+</section>

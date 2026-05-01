@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import Projects from "../components/sections/Projects.astro";
+import Certificates from "../components/sections/Certificates.astro";
+import News from "../components/sections/News.astro";
+import Partners from "../components/sections/Partners.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="PTTC JSC - Giải Pháp Công Nghệ Hóa Dầu Hàng Đầu tại Quảng Ngãi"
+  description="PTTC JSC – Công ty Cổ phần Công nghệ Hóa dầu Việt Nam, thành lập 2014. Cung cấp hóa chất, xúc tác, vật tư và dịch vụ kỹ thuật cho ngành lọc dầu và công nghiệp. Đối tác tin cậy tại Quảng Ngãi."
+  keywords="PTTC JSC, hóa dầu Quảng Ngãi, xúc tác lọc dầu, hóa chất công nghiệp, dịch vụ kỹ thuật dầu khí, Dung Quất, Nghi Sơn, petroleum technology Vietnam"
+  ogImage="https://pttc.com.vn/banner1.jpg"
+>
+  <Navbar activePath="/" />
+  <main>
+    <Hero />
+    <Projects />
+    <Certificates />
+    <News />
+    <Partners />
+  </main>
+  <Footer />
 </Layout>

@@ -1,0 +1,43 @@
+---
+import Badge from "../ui/Badge.astro";
+import type { Project } from "../../data/site";
+
+interface Props extends Project {}
+
+const { image, alt, status, statusTone, title, description, year, location } =
+  Astro.props;
+---
+
+<article
+  class="group cursor-pointer overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+>
+  <div class="h-64 overflow-hidden relative">
+    <img
+      alt={alt}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      src={image}
+      loading="lazy"
+    />
+    <div class="absolute top-4 left-4">
+      <Badge label={status} tone={statusTone} />
+    </div>
+  </div>
+  <div class="p-6">
+    <h3
+      class="font-headline text-headline-md text-xl mb-2 group-hover:text-surface-tint transition-colors"
+    >
+      {title}
+    </h3>
+    <p class="text-on-surface-variant text-body-sm mb-4">{description}</p>
+    <div class="flex items-center text-slate-500 text-xs gap-4">
+      <span class="flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">calendar_today</span>
+        {year}
+      </span>
+      <span class="flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">location_on</span>
+        {location}
+      </span>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,22 @@
+---
+import type { PartnerItem } from "../../data/partners";
+
+interface Props extends PartnerItem {}
+
+const { name, logo } = Astro.props;
+---
+
+<div
+  class="bg-white border border-slate-200 p-stack-md flex flex-col items-center justify-center h-64 text-center
+         hover:-translate-y-1 hover:border-primary-container transition-all duration-200 cursor-pointer"
+>
+  <div class="h-24 flex items-center justify-center mb-stack-sm">
+    <img
+      alt={name}
+      class="max-h-full w-auto max-w-[140px] grayscale hover:grayscale-0 transition-all duration-300 object-contain"
+      src={logo}
+      loading="lazy"
+    />
+  </div>
+  <span class="font-label-md text-label-md text-primary">{name}</span>
+</div>

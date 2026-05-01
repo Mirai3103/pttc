@@ -1,0 +1,52 @@
+---
+interface Props {
+  variant?: "primary" | "outline" | "ghost";
+  href?: string;
+  icon?: string;
+  iconPosition?: "left" | "right";
+  size?: "md" | "lg";
+  class?: string;
+  type?: "button" | "submit" | "reset";
+}
+
+const {
+  variant = "primary",
+  href,
+  icon,
+  iconPosition = "right",
+  size = "md",
+  class: className = "",
+  type = "button",
+} = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center gap-2 font-label-md text-label-md rounded transition-all duration-200";
+
+const sizing = size === "lg" ? "py-3 px-8" : "py-2.5 px-6";
+
+const variants: Record<string, string> = {
+  primary:
+    "bg-primary-container text-on-primary hover:bg-tertiary-container shadow-sm hover:shadow-md",
+  outline:
+    "text-primary border border-primary hover:bg-primary hover:text-white",
+  ghost: "text-primary hover:underline",
+};
+
+const classes = `${base} ${sizing} ${variants[variant]} ${className}`;
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  class={classes}
+  href={href}
+  type={!href ? type : undefined}
+>
+  {icon && iconPosition === "left" && (
+    <span class="material-symbols-outlined text-[18px]">{icon}</span>
+  )}
+  <slot />
+  {icon && iconPosition === "right" && (
+    <span class="material-symbols-outlined text-[18px]">{icon}</span>
+  )}
+</Tag>

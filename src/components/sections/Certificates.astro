@@ -1,0 +1,18 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import CertificateCard from "../cards/CertificateCard.astro";
+import { certificates } from "../../data/site";
+---
+
+<section class="py-stack-lg bg-surface-container px-8">
+  <div class="max-w-[1280px] mx-auto text-center">
+    <SectionHeading
+      eyebrow="Uy tín đã được khẳng định"
+      title="Chứng Chỉ & Tiêu Chuẩn Quốc Tế"
+      align="center"
+    />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter" data-stagger>
+      {certificates.map((cert) => <CertificateCard {...cert} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import Button from "../ui/Button.astro";
+import { hero } from "../../data/site";
+---
+
+<section
+  class="relative w-full h-[600px] flex items-center justify-center bg-surface-variant overflow-hidden"
+>
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <img
+      alt="Refinery"
+      class="hero-img w-full h-full object-cover opacity-40 mix-blend-multiply"
+      src={hero.image}
+    />
+  </div>
+  <div class="relative z-10 text-center max-w-4xl px-4 flex flex-col items-center">
+    <h1
+      class="hero-title font-headline text-headline-xl text-primary mb-stack-sm drop-shadow-md"
+    >
+      {hero.title}
+    </h1>
+    <p
+      class="hero-subtitle font-body text-body-lg text-on-surface-variant mb-stack-md max-w-2xl"
+    >
+      {hero.subtitle}
+    </p>
+    <div class="hero-cta">
+      <Button
+        variant="primary"
+        size="lg"
+        href={hero.cta.href}
+        icon="arrow_forward"
+        iconPosition="right"
+      >
+        {hero.cta.label}
+      </Button>
+    </div>
+  </div>
+</section>

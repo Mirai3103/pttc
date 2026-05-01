@@ -1,0 +1,27 @@
+---
+import { partnerCTA } from "../../data/partners";
+---
+
+<section class="bg-primary text-white py-stack-lg" data-reveal>
+  <div
+    class="px-gutter max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-stack-md"
+  >
+    <div class="max-w-2xl text-center md:text-left">
+      <h2 class="font-headline text-headline-lg mb-unit">{partnerCTA.heading}</h2>
+      <p class="font-body text-body-md text-primary-fixed-dim">{partnerCTA.body}</p>
+    </div>
+    <div class="flex flex-wrap gap-stack-sm justify-center">
+      <button
+        class="bg-on-tertiary-container text-white px-8 py-3 rounded-lg font-label-md text-label-md hover:brightness-110 transition-all duration-200"
+      >
+        Gửi yêu cầu
+      </button>
+      <button
+        class="border border-white text-white px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-white/10 transition-all duration-200 flex items-center gap-2"
+      >
+        <span class="material-symbols-outlined text-[18px]">download</span>
+        Tải Profile Năng Lực
+      </button>
+    </div>
+  </div>
+</section>

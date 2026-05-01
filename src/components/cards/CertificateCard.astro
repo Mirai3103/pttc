@@ -1,0 +1,28 @@
+---
+import type { Certificate } from "../../data/site";
+
+interface Props extends Certificate {}
+
+const { name, subtitle, logo, fallback } = Astro.props;
+---
+
+<div
+  class="bg-white p-8 rounded shadow-sm flex flex-col items-center justify-center hover:-translate-y-1 hover:shadow-md transition-all duration-300"
+>
+  {logo ? (
+    <img
+      alt={name}
+      class="h-20 object-contain mb-4 opacity-80 grayscale hover:grayscale-0 transition-all"
+      src={logo}
+      loading="lazy"
+    />
+  ) : (
+    <div
+      class="h-20 w-20 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-primary font-bold text-lg border-2 border-primary/20 italic"
+    >
+      {fallback}
+    </div>
+  )}
+  <h4 class="font-label-md text-label-md text-primary">{name}</h4>
+  <p class="text-[10px] text-slate-400 mt-1 uppercase">{subtitle}</p>
+</div>

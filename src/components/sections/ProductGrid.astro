@@ -1,0 +1,42 @@
+---
+import ProductCard from "../cards/ProductCard.astro";
+import { categories, products } from "../../data/products";
+---
+
+<section class="max-w-[1280px] mx-auto px-8 py-stack-lg flex flex-col md:flex-row gap-gutter">
+  <!-- Sidebar -->
+  <aside class="w-full md:w-64 flex-shrink-0" data-reveal>
+    <div
+      class="bg-surface-container-low border border-surface-container-highest rounded-lg p-stack-sm sticky top-32"
+    >
+      <h3 class="font-headline text-headline-md text-primary-container mb-stack-sm">
+        Danh Mục
+      </h3>
+      <ul class="space-y-unit">
+        {categories.map((cat) => (
+          <li>
+            <a
+              href={`#${cat.id}`}
+              class={
+                cat.active
+                  ? "flex items-center gap-2 p-2 rounded bg-surface-container-highest text-primary-container font-label-md text-label-md"
+                  : "flex items-center gap-2 p-2 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary-container transition-colors duration-200 font-body text-body-sm"
+              }
+            >
+              <span class="material-symbols-outlined text-[20px]">{cat.icon}</span>
+              {cat.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Product grid -->
+  <div
+    class="flex-grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter"
+    data-stagger
+  >
+    {products.map((product) => <ProductCard {...product} />)}
+  </div>
+</section>

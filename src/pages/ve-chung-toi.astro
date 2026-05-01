@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import AboutHero from "../components/sections/AboutHero.astro";
+import AboutIntro from "../components/sections/AboutIntro.astro";
+import MissionVision from "../components/sections/MissionVision.astro";
+import CoreValues from "../components/sections/CoreValues.astro";
+---
+
+<Layout
+  title="Về Chúng Tôi - PTTC JSC | Công ty Công nghệ Hóa dầu Việt Nam"
+  description="PTTC JSC thành lập năm 2014 tại Quảng Ngãi. Đội ngũ chuyên môn cao với mạng lưới đối tác toàn cầu, chuyên giải pháp xử lý nước, chống ăn mòn, làm sạch hệ thống và cung cấp hóa chất chất lượng cao cho ngành lọc dầu."
+  keywords="về PTTC JSC, lịch sử công ty hóa dầu, đội ngũ kỹ thuật dầu khí, giá trị cốt lõi, sứ mệnh tầm nhìn, công ty hóa chất Quảng Ngãi"
+  ogImage="https://pttc.com.vn/about-we.jpg"
+>
+  <Navbar activePath="/ve-chung-toi" />
+  <AboutHero />
+  <main class="max-w-[1280px] mx-auto px-margin py-stack-lg flex flex-col gap-stack-lg">
+    <AboutIntro />
+    <MissionVision />
+    <CoreValues />
+  </main>
+  <Footer />
+</Layout>

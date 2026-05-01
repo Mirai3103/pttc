@@ -1,0 +1,24 @@
+---
+import { missionVision } from "../../data/about";
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter" data-stagger>
+  {missionVision.map((item) => (
+    <div
+      class="bg-surface-container-low p-8 rounded border border-outline-variant flex flex-col gap-4 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+    >
+      <div
+        class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary mb-2"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: 'FILL' 1;"
+        >
+          {item.icon}
+        </span>
+      </div>
+      <h3 class="font-headline text-headline-md text-primary">{item.title}</h3>
+      <p class="font-body text-body-md text-on-surface-variant">{item.description}</p>
+    </div>
+  ))}
+</section>

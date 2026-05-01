@@ -1,0 +1,30 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  align?: "left" | "center" | "split" | "bordered";
+  class?: string;
+}
+
+const { eyebrow, title, align = "left", class: className = "" } = Astro.props;
+
+const wrapperClasses: Record<string, string> = {
+  left: "mb-stack-md",
+  center: "text-center mb-stack-md",
+  split: "flex justify-between items-end mb-stack-md gap-4 flex-wrap",
+  bordered:
+    "flex flex-col md:flex-row md:items-center justify-between mb-stack-md border-l-4 border-primary pl-6 gap-4",
+};
+---
+
+<div class={`${wrapperClasses[align]} ${className}`} data-reveal>
+  <div>
+    {eyebrow && (
+      <span class="text-surface-tint font-label-md text-label-md uppercase tracking-widest block mb-2">
+        {eyebrow}
+      </span>
+    )}
+    <h2 class="font-headline text-headline-lg text-primary">{title}</h2>
+  </div>
+  <slot name="cta" />
+</div>

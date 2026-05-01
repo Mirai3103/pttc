@@ -1,0 +1,49 @@
+---
+import { techSupport } from "../../data/products";
+---
+
+<section
+  class="bg-surface-container-low border-t border-b border-surface-container-highest py-stack-lg mt-stack-md"
+>
+  <div
+    class="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row items-center gap-stack-md"
+  >
+    <div class="flex-1" data-reveal>
+      <h2 class="font-headline text-headline-lg text-primary-container mb-stack-sm">
+        {techSupport.title}
+      </h2>
+      <p class="font-body text-body-md text-on-surface-variant mb-stack-sm">
+        {techSupport.description}
+      </p>
+      <ul class="space-y-4 mb-stack-sm">
+        {techSupport.points.map((point) => (
+          <li class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary-container flex-shrink-0">
+              check_circle
+            </span>
+            <span class="font-body text-body-sm text-on-surface-variant">{point}</span>
+          </li>
+        ))}
+      </ul>
+      <button
+        class="bg-surface border border-outline text-primary-container font-label-md text-label-md px-6 py-3 rounded hover:bg-surface-container-highest transition-colors duration-200 flex items-center gap-2"
+      >
+        <span class="material-symbols-outlined text-[18px]">support_agent</span>
+        Liên hệ bộ phận kỹ thuật
+      </button>
+    </div>
+
+    <div
+      class="flex-1 w-full h-80 rounded-lg overflow-hidden border border-surface-container-highest group"
+      data-reveal
+      style="transition-delay: 0.15s"
+    >
+      <img
+        src={techSupport.image}
+        alt="Kỹ sư hỗ trợ kỹ thuật tại hiện trường"
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

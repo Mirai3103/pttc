@@ -1,0 +1,28 @@
+---
+import SectionHeading from "../ui/SectionHeading.astro";
+import ProjectCard from "../cards/ProjectCard.astro";
+import { projects } from "../../data/site";
+---
+
+<section class="py-stack-lg bg-surface px-8" id="du-an">
+  <div class="max-w-[1280px] mx-auto">
+    <SectionHeading
+      eyebrow="Thực thi & Kinh nghiệm"
+      title="Dự Án Tiêu Biểu"
+      align="split"
+    >
+      <a
+        slot="cta"
+        class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline mb-2"
+        href="#"
+      >
+        Xem tất cả dự án
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </SectionHeading>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" data-stagger>
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import { coreValues } from "../../data/about";
+---
+
+<section class="flex flex-col gap-stack-md">
+  <div class="text-center" data-reveal>
+    <h2 class="font-headline text-headline-lg text-primary">Giá trị cốt lõi</h2>
+    <p class="font-body text-body-md text-on-surface-variant mt-2 max-w-2xl mx-auto">
+      Nền tảng vững chắc cho mọi hoạt động kinh doanh và phát triển của chúng tôi.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter" data-stagger>
+    {coreValues.map((value) => (
+      <div
+        class="bg-surface p-6 rounded border border-outline-variant text-center flex flex-col items-center gap-4 hover:bg-surface-container hover:shadow-sm hover:-translate-y-1 transition-all duration-300"
+      >
+        <span
+          class="material-symbols-outlined text-4xl text-primary-container"
+          style="font-variation-settings: 'FILL' 1;"
+        >
+          {value.icon}
+        </span>
+        <h4 class="font-label-md text-label-md text-primary uppercase">
+          {value.title}
+        </h4>
+        <p class="font-body text-body-sm text-on-surface-variant">
+          {value.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

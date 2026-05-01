@@ -1,23 +1,173 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  canonical?: string;
+}
+
+const SITE_URL = "https://pttc.com.vn";
+const SITE_NAME = "PTTC JSC";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/banner1.jpg`;
+
+const {
+  title = "PTTC JSC - Giải Pháp Công Nghệ Hóa Dầu Hàng Đầu",
+  description = "PTTC JSC – Công ty Cổ phần Công nghệ Hóa dầu Việt Nam, thành lập 2014. Chuyên cung cấp hóa chất, xúc tác, vật tư và dịch vụ kỹ thuật cho ngành lọc dầu và công nghiệp tại Quảng Ngãi.",
+  keywords = "PTTC JSC, hóa dầu, xúc tác, hóa chất công nghiệp, lọc dầu, dầu khí, Quảng Ngãi, petroleum technology, công nghệ hóa dầu Việt Nam",
+  ogImage = DEFAULT_OG_IMAGE,
+  ogType = "website",
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Công ty Cổ phần Công nghệ Hóa dầu Việt Nam",
+  alternateName: "PTTC JSC",
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.jpg`,
+  image: DEFAULT_OG_IMAGE,
+  description:
+    "PTTC JSC thành lập năm 2014, chuyên cung cấp hóa chất, xúc tác, vật tư và dịch vụ kỹ thuật cho ngành lọc dầu và công nghiệp. Đối tác tin cậy cho giải pháp công nghiệp.",
+  foundingDate: "2014",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Lô E5.10 Ngọc Bảo Viên, Nghĩa Lộ",
+    addressLocality: "Tp. Quảng Ngãi",
+    addressRegion: "Quảng Ngãi",
+    addressCountry: "VN",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+84-974-609-103",
+      contactType: "customer service",
+      availableLanguage: "Vietnamese",
+      areaServed: "VN",
+    },
+  ],
+  email: "admin@pttc.com.vn",
+  sameAs: [],
+};
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={SITE_NAME} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph (Facebook, Zalo, LinkedIn) -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
+
+    <!-- Geo / Local SEO -->
+    <meta name="geo.region" content="VN-QNG" />
+    <meta name="geo.placename" content="Quảng Ngãi, Việt Nam" />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background text-on-background font-body antialiased pt-20">
+  <script is:inline>
+    // Gate reveal animations behind JS availability
+    document.documentElement.classList.add('js');
+  </script>
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+  html,
+  body {
+    margin: 0;
+  }
 </style>
+
+<script>
+  // ── Navbar: add shadow on scroll
+  const nav = document.querySelector('nav');
+  const onScroll = () => {
+    if (!nav) return;
+    if (window.scrollY > 20) {
+      nav.style.boxShadow = '0 4px 24px rgba(0, 30, 64, 0.08)';
+    } else {
+      nav.style.boxShadow = '';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ── Scroll reveal: [data-reveal]
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
+
+  // ── Stagger reveal: [data-stagger] children cascade in
+  const staggerObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          Array.from(entry.target.children).forEach((child, i) => {
+            setTimeout(() => child.classList.add('is-visible'), i * 130);
+          });
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('[data-stagger]').forEach((el) => staggerObserver.observe(el));
+</script>

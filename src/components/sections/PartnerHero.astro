@@ -1,0 +1,20 @@
+---
+import { partnerHero } from "../../data/partners";
+---
+
+<section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <img
+      alt="Đối Tác Chiến Lược"
+      class="hero-img w-full h-full object-cover"
+      src={partnerHero.image}
+    />
+    <div class="absolute inset-0 bg-primary/60 z-10"></div>
+  </div>
+  <div class="relative z-20 text-center px-gutter max-w-[1280px] mx-auto">
+    <h1 class="hero-title font-headline text-headline-xl text-white mb-stack-sm">
+      {partnerHero.title}
+    </h1>
+    <div class="hero-subtitle w-24 h-1 bg-on-tertiary-container mx-auto"></div>
+  </div>
+</section>

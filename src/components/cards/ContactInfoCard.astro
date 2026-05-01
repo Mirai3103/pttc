@@ -1,0 +1,37 @@
+---
+import type { ContactInfo } from "../../data/contact";
+
+interface Props extends ContactInfo {}
+
+const { icon, title, lines, link } = Astro.props;
+---
+
+<div
+  class="bg-surface-container-low border border-outline-variant rounded p-stack-sm flex items-start gap-stack-sm hover:shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+>
+  <div class="bg-primary-fixed text-on-primary-fixed rounded p-2 flex-shrink-0">
+    <span class="material-symbols-outlined fill">{icon}</span>
+  </div>
+  <div class="min-w-0">
+    <h3 class="font-headline text-headline-md text-primary mb-unit">{title}</h3>
+    <p class="font-body text-body-md text-on-surface-variant leading-relaxed">
+      {lines.map((line, i) => (
+        <>
+          {line}
+          {i < lines.length - 1 && <br />}
+        </>
+      ))}
+    </p>
+    {link && (
+      <a
+        href={link.href}
+        target={link.href.startsWith("http") ? "_blank" : undefined}
+        rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+        class="inline-flex items-center gap-1 mt-unit font-label-sm text-label-sm text-primary-container hover:underline"
+      >
+        {link.label}
+        <span class="material-symbols-outlined text-sm" style="font-size:14px">arrow_forward</span>
+      </a>
+    )}
+  </div>
+</div>

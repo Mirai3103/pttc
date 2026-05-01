@@ -1,0 +1,28 @@
+---
+import PartnerCard from "../cards/PartnerCard.astro";
+import { partnerList } from "../../data/partners";
+---
+
+<section class="pb-stack-lg px-gutter max-w-[1280px] mx-auto">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-unit"
+    data-stagger
+  >
+    {partnerList.map((partner) => <PartnerCard {...partner} />)}
+
+    <!-- Placeholder: become a partner -->
+    <div
+      class="bg-slate-50 border border-dashed border-slate-300 p-stack-md flex flex-col items-center justify-center h-64 text-center
+             hover:border-primary-container hover:bg-surface-container-low transition-all duration-200 cursor-pointer group"
+    >
+      <div
+        class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center mb-stack-sm text-slate-400 group-hover:bg-primary-container group-hover:text-white transition-all duration-300"
+      >
+        <span class="material-symbols-outlined">add</span>
+      </div>
+      <span class="font-label-sm text-label-sm text-slate-400 group-hover:text-primary-container uppercase tracking-widest transition-colors duration-200">
+        Trở thành đối tác
+      </span>
+    </div>
+  </div>
+</section>
